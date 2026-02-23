@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!-- 
+         _____    __    __  ____    ____      
+ /'\_/`\/\  __`\ /\ \  /\ \/\  _`\ /\  _`\    
+/\      \ \ \/\ \\ `\`\\/'/\ \ \L\ \ \ \L\_\  
+\ \ \__\ \ \ \ \ \`\ `\ /'  \ \ ,  /\ \  _\L  
+ \ \ \_/\ \ \ \_\ \ `\ \ \   \ \ \\ \\ \ \L\ \
+  \ \_\\ \_\ \_____\  \ \_\   \ \_\ \_\ \____/
+   \/_/ \/_/\/_____/   \/_/    \/_/\/ /\/___/ 
+                                              
+                                              
+   ___       __      ___      ____    
+ /'___`\   /'__`\  /'___`\   /'___\   
+/\_\ /\ \ /\ \/\ \/\_\ /\ \ /\ \__/   
+\/_/// /__\ \ \ \ \/_/// /__\ \  _``\ 
+   // /_\ \\ \ \_\ \ // /_\ \\ \ \L\ \
+  /\______/ \ \____//\______/ \ \____/
+  \/_____/   \/___/ \/_____/   \/___/ 
+                                      
+                                      
+ ____     _____   ____    __    __  ____    ______   ____    __  __  ______   
+/\  _`\  /\  __`\/\  _`\ /\ \  /\ \/\  _`\ /\__  _\ /\  _`\ /\ \/\ \/\__  _\  
+\ \ \/\_\\ \ \/\ \ \ \L\ \ `\`\\/'/\ \ \L\ \/_/\ \/ \ \ \L\_\ \ \_\ \/_/\ \/  
+ \ \ \/_/_\ \ \ \ \ \ ,__/`\ `\ /'  \ \ ,  /  \ \ \  \ \ \L_L\ \  _  \ \ \ \  
+  \ \ \L\ \\ \ \_\ \ \ \/   `\ \ \   \ \ \\ \  \_\ \__\ \ \/, \ \ \ \ \ \ \ \ 
+   \ \____/ \ \_____\ \_\     \ \_\   \ \_\ \_\/\_____\\ \____/\ \_\ \_\ \ \_\
+    \/___/   \/_____/\/_/      \/_/    \/_/\/ /\/_____/ \/___/  \/_/\/_/  \/_/
+-->
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>主页 | Moyre</title>
+  <link rel="stylesheet" href="https://www.moyre.xin/styles.css">
+  <link rel="stylesheet" href="https://www.moyre.xin/public/font/touhou98/touhou98.css">
+  <link rel="preload" as="image" href="https://api.moyre.xin/image/api.php">
+  <script src="https://www.moyre.xin/script.js"></script>
+  <script>
+    function updateRuntime() {
+      const runtimeElement = document.getElementById('runtime');
+      const startTime = new Date('2024-08-13T18:14:22Z');
+      const now = new Date();
+      const diff = now - startTime;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      runtimeElement.textContent = `${days}天 ${hours}小时 ${minutes}分钟 ${seconds}秒`;
+    }
+  </script>
+</head>
+<body>
+  <div class="overlay" aria-hidden="true"></div>
+
+  <nav>
+    <div class="brand">Moyre | 主页</div>
+    <div class="nav-center" id="navCenter">
+      <button class="nav-toggle" id="navToggle" aria-haspopup="true" aria-expanded="false">
+        网页导航
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="opacity:.85;margin-left:4px"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <div class="nav-dropdown" id="navDropdown" role="menu" aria-hidden="true">
+        <a href="https://wordpress.moyre.xin/" target="_blank" rel="noopener">WordPress Blog</a>
+        <a href="https://music.moyre.xin/" target="_blank" rel="noopener">Music</a>
+        <a href="https://alist.moyre.xin/" target="_blank" rel="noopener">Alist</a>
+        <a href="https://www.moyre.xin/tool/" target="_blank" rel="noopener">工具</a>
+        <a href="https://www.moyre.xin/edu/exam_info/" target="_blank" rel="noopener">考试信息</a>
+        <a href="https://www.moyre.xin/edu/xyabwl/" target="_blank" rel="noopener">备忘录</a>
+      </div>
+    </div>
+
+    <div class="links" aria-hidden="true">
+      <a href="https://www.moyre.xin/" target="_blank" rel="noopener">主页</a>
+      <a href="https://www.moyre.xin/edu/xyabwl/" target="_blank" rel="noopener">备忘</a>
+      <a href="https://www.moyre.xin/archive/" target="_blank" rel="noopener">Archive</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" aria-label="首屏">
+      <div class="stack">
+        <h1 class="touhou98 typewriter" id="mainTitle"></h1>
+        <p class="subtitle typewriter" id="subTitle"></p>
+      </div>
+      <div class="scroll-hint" id="scrollHint">
+        <div class="hint-text">向下滚动</div>
+        <div class="hint-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="explore" id="explore" aria-label="精选网站">
+      <h2 class="touhou98">Website</h2>
+      <div class="items">
+        <a href="https://WordPress.moyre.xin/" target="_blank" rel="noopener">
+          <div class="name">WordPress Blog</div>
+          <div class="why">博客</div>
+        </a>
+        <a href="https://www.moyre.xin/edu/xyabwl/" target="_blank" rel="noopener">
+          <div class="name">备忘录</div>
+          <div class="why">工作日每天更新</div>
+        </a>
+        <a href="https://music.moyre.xin/" target="_blank" rel="noopener">
+          <div class="name">Music</div>
+          <div class="why">在线播放无损音乐</div>
+        </a>
+        <a href="https://alist.moyre.xin/" target="_blank" rel="noopener">
+          <div class="name">Alist</div>
+          <div class="why">在线目录浏览管理系统</div>
+        </a>
+        <a href="https://www.moyre.xin/tool/" target="_blank" rel="noopener">
+          <div class="name">工具</div>
+          <div class="why">在线加载Web工具</div>
+        </a>
+        <a href="https://api.moyre.xin/" target="_blank" rel="noopener">
+          <div class="name">API</div>
+          <div class="why">目前只有图片API</div>
+        </a>
+      </div>
+    </section>
+
+    <footer id="about">
+      © <span id="year">2024-2026</span>&nbsp;Moyre 保留所有权利 | Ver3.1
+      <p style="color:white">本站已存活 <span id="runtime"></span></p>
+    </footer>
+  </main>
+
+</body>
+</html>
